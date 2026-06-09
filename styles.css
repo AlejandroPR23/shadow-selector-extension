@@ -1,0 +1,310 @@
+/* Shadow Selector Helper PRO — v4 */
+
+#shadow-helper-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #0f1117;
+  color: #e2e8f0;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  padding: 14px;
+  border-radius: 12px;
+  z-index: 2147483647;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+#shadow-helper-panel::-webkit-scrollbar { width: 4px; }
+#shadow-helper-panel::-webkit-scrollbar-track { background: transparent; }
+#shadow-helper-panel::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+
+/* ── Header ── */
+.sh-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sh-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.02em;
+}
+
+.sh-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sh-hint {
+  font-size: 9px;
+  color: #475569;
+  white-space: nowrap;
+}
+
+/* ── Depth bar ── */
+.sh-depth-bar {
+  margin-bottom: 10px;
+}
+
+#sh-depth {
+  font-size: 10px;
+  color: #64748b;
+  background: #1e293b;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* ── Selectors ── */
+.sh-selectors {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.sh-row {
+  display: grid;
+  grid-template-columns: 36px 1fr auto auto;
+  align-items: center;
+  gap: 5px;
+  background: #1a2232;
+  border-radius: 6px;
+  padding: 5px 7px;
+}
+
+.sh-label {
+  font-size: 9px;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sh-selector-text {
+  font-size: 10px;
+  color: #7dd3fc;
+  white-space: nowrap;
+  overflow-x: auto;
+  max-width: 180px;
+  scrollbar-width: none;
+}
+.sh-selector-text::-webkit-scrollbar { display: none; }
+
+.sh-badge {
+  font-size: 9px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ── Divider ── */
+.sh-divider {
+  height: 1px;
+  background: #1e293b;
+  margin: 10px 0;
+}
+
+/* ── YAML Section ── */
+.sh-yaml-section {}
+
+.sh-yaml-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.sh-yaml-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sh-yaml-preview {
+  background: #1a2232;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 10px;
+  color: #a3e635;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre;
+  overflow-x: auto;
+  max-height: 160px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #334155 transparent;
+}
+
+/* ── Inject Section ── */
+.sh-inject-section {}
+
+.sh-inject-row {
+  display: flex;
+  gap: 5px;
+  margin: 5px 0 4px;
+}
+
+/* ── History ── */
+.sh-history-section {}
+
+.sh-history-list {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+.sh-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a2232;
+  border-radius: 4px;
+  padding: 4px 7px;
+  gap: 6px;
+}
+
+.sh-history-label {
+  font-size: 10px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 240px;
+}
+
+.sh-history-restore {
+  background: none;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 3px;
+  padding: 1px 5px;
+  cursor: pointer;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.sh-history-restore:hover {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* ── Footer ── */
+.sh-footer {
+  margin-top: 8px;
+}
+
+/* ── Buttons ── */
+.sh-btn {
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+}
+
+.sh-btn:hover { opacity: 0.85; }
+
+.sh-btn--active {
+  background: #22c55e;
+  color: #0f1117;
+}
+
+.sh-btn--inactive {
+  background: #334155;
+  color: #94a3b8;
+}
+
+.sh-btn--inject {
+  background: #3b82f6;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sh-btn--yaml {
+  background: #7c3aed;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sh-btn--unlock {
+  background: #f59e0b;
+  color: #0f1117;
+  width: 100%;
+}
+
+.sh-copy {
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+}
+
+.sh-copy:hover {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* ── Input / Select ── */
+.sh-input {
+  font-family: inherit;
+  font-size: 10px;
+  background: #1a2232;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  border-radius: 5px;
+  padding: 4px 8px;
+  flex: 1;
+  outline: none;
+}
+
+.sh-input:focus {
+  border-color: #3b82f6;
+}
+
+.sh-select {
+  font-family: inherit;
+  font-size: 9px;
+  background: #1a2232;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  border-radius: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Highlight overlay ── */
+#shadow-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid #00ffcc;
+  background: rgba(0, 255, 200, 0.08);
+  pointer-events: none;
+  z-index: 2147483646;
+  border-radius: 3px;
+  transition: top 0.05s, left 0.05s, width 0.05s, height 0.05s;
+}
