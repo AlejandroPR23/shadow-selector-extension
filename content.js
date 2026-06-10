@@ -521,28 +521,13 @@
         }, 2500);
       }
 
-      // Re-calcular selector con el nuevo atributo
-      const path = [];
-      let node = lastElement;
-      while (node) {
-        path.push(node);
-        node = node.parentElement || (node.getRootNode() instanceof ShadowRoot ? node.getRootNode() : null);
-      }
-      // Forzar recálculo simple usando el nuevo data-tour
-      lastSelectors = {
-        short:  `[data-tour="${name}"]`,
-        medium: `[data-tour="${name}"]`,
-        long:   `[data-tour="${name}"]`,
-      };
-      ['short', 'medium', 'long'].forEach(mode => {
-        const textEl  = document.getElementById(`s-${mode}`);
-        const badgeEl = document.getElementById(`b-${mode}`);
-        if (textEl) textEl.textContent = lastSelectors[mode];
-        const count = countMatches(lastSelectors[mode]);
-        const badge = matchBadge(count);
-        if (badgeEl) { badgeEl.textContent = badge.text; badgeEl.style.color = badge.color; }
-      });
-      updateYamlPreview();
+      // Re-calcular selectores con el nuevo data-tour aplicado.
+      // Reusamos buildRealPath, que ya maneja Shadow DOM correctamente
+      // saltando del ShadowRoot a su host. El bucle anterior caía en un
+      // loop infinito porque getRootNode() sobre un ShadowRoot devuelve
+      // el propio ShadowRoot, sin avanzar nunca.
+      // updateUI() refresca los 3 selectores, badges y la preview YAML.
+      updateUI(buildRealPath(lastElement), lastElement);
     }
 
     // Restaurar historial

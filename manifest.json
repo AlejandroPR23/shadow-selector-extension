@@ -1,10 +1,21 @@
 {
   "manifest_version": 3,
-  "name": "Shadow DOM Selector Helper PRO 3.1.0",
+  "name": "Shadow DOM Selector Helper PRO",
   "version": "3.1.0",
+  "description": "Pick elements inside Shadow DOM and generate CSS selectors + YAML steps for Driver.js / Drupal Guided Tour.",
   "permissions": ["scripting", "activeTab", "clipboardWrite"],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "action": {
-    "default_title": "Shadow Selector Helper"
+    "default_title": "Shadow Selector Helper",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   },
   "background": {
     "service_worker": "background.js"
